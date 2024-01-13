@@ -1,6 +1,6 @@
 import * as express from "express";
 import * as admin from "firebase-admin";
-import { usersCollection } from "../utils/constants";
+import { usersCollection } from "../../utils/constants";
 
 export const getUserId = async (
   req: express.Request,

@@ -1,8 +1,9 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 import * as express from "express";
-import { createTask, getAllTasks } from "./api/tasks";
-import { getUserId } from "./api/users";
+import { createTask } from "./api/tasks/createTask";
+import { getAllTasks } from "./api/tasks/getAllTasks";
+import { getUserId } from "./api/users/getUserId";
 
 admin.initializeApp();
 
