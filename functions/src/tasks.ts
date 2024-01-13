@@ -32,8 +32,7 @@ const taskInputValidator: Record<keyof TaskInput, (value: any) => boolean> = {
 
 export const createTask = async (
   req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
+  res: express.Response
 ) => {
   try {
     const db = admin.firestore();
