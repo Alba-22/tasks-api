@@ -5,6 +5,7 @@ import { tasksCollection, usersCollection } from "../utils/constants";
 import { logger } from "firebase-functions/v1";
 import { validateRequestBody } from "../utils/validateRequestBody";
 import { Timestamp } from "firebase-admin/firestore";
+import { verifyUserId } from "../utils/verifyUserId";
 
 interface Task {
   id: string;
@@ -35,20 +36,12 @@ export const createTask = async (
   res: express.Response
 ) => {
   try {
-    const db = admin.firestore();
-    const userId = req.query["id"] as string;
-    if (!userId) {
-      res.status(404).json({
-        message: "ID de usuário não encontrado",
-      });
-      return;
-    }
+    verifyUserId(req, res);
+    validateRequestBody(req, res, taskInputValidator);
 
-    const errors = validateRequestBody(req, taskInputValidator);
-    if (errors.length > 0) {
-      res.status(400).json({ message: errors });
-      return;
-    }
+    const db = admin.firestore();
+
+    const userId = req.query["id"] as string;
 
     const task: Task = req.body;
     const tasksCollectionRef = db

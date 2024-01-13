@@ -2,8 +2,9 @@ import * as express from "express";
 
 export function validateRequestBody<T>(
   req: express.Request,
+  res: express.Response,
   schema: Record<keyof T, (value: any) => boolean>
-): string[] {
+): void {
   const errors: string[] = [];
 
   for (const key in schema) {
@@ -17,5 +18,7 @@ export function validateRequestBody<T>(
     }
   }
 
-  return errors;
+  if (errors.length > 0) {
+    res.status(400).json({ message: errors });
+  }
 }
