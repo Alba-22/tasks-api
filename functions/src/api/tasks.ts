@@ -1,9 +1,9 @@
 import * as express from "express";
 import * as admin from "firebase-admin";
 
-import { tasksCollection, usersCollection } from "./constants";
+import { tasksCollection, usersCollection } from "../utils/constants";
 import { logger } from "firebase-functions/v1";
-import { validateRequestBody } from "./validateRequestBody";
+import { validateRequestBody } from "../utils/validateRequestBody";
 import { Timestamp } from "firebase-admin/firestore";
 
 interface Task {
