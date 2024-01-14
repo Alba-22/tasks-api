@@ -15,7 +15,7 @@ export const getAllTasks = async (
     verifyUserId(req, res);
 
     const db = admin.firestore();
-    const userId = req.query["id"] as string;
+    const userId = req.query.userId as string;
 
     const tasksSnapshot = await db
       .collection(usersCollection)

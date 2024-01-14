@@ -33,7 +33,7 @@ export const createTask = async (
 
     const db = admin.firestore();
 
-    const userId = req.query["id"] as string;
+    const userId = req.query.userId as string;
 
     const task: Task = req.body;
     const tasksCollectionRef = db

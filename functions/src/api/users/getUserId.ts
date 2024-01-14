@@ -7,7 +7,7 @@ export const getUserId = async (
   res: express.Response
 ) => {
   const db = admin.firestore();
-  const nickname = req.query["nickname"];
+  const nickname = req.query.nickname;
   if (!nickname) {
     res.status(400).json({
       message: "Informe o parâmetro 'nickname' para obter o id de usuário",
@@ -27,7 +27,7 @@ export const getUserId = async (
       nickname: nickname,
     });
     res.status(200).json({
-      id: result.id,
+      userId: result.id,
     });
   }
 };

@@ -21,7 +21,7 @@ export const editTask = async (req: express.Request, res: express.Response) => {
     validateRequestBody(req, res, editTaskValidator);
 
     const taskId = req.body.id;
-    const userId = req.query.id as string;
+    const userId = req.query.userId as string;
 
     const db = admin.firestore();
 

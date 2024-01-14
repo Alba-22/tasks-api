@@ -24,7 +24,7 @@ export const deleteTask = async (
     verifyUserId(req, res);
     validateRequestBody(req, res, deleteTaskValidator);
 
-    const userId = req.query.id as string;
+    const userId = req.query.userId as string;
     const taskId = req.body.id as string;
 
     const db = admin.firestore();
