@@ -145,3 +145,7 @@ Endpoint para a deletar uma tarefa/
 #### Resposta da Requisição:
 
 Em caso de sucesso, será retornado o código 200 com um corpo vazio.
+
+## Testando API no Postman
+
+Caso deseje testar os endpoints no postman, importe o [arquivo JSON](BichinhosTI-FlutterPad.postman_collection.json) no seu Postman.

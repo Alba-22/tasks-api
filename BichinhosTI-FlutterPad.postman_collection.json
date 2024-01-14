@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "a7d62e6a-5117-4a70-880d-b80564d8a65e",
+		"name": "BichinhosTI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9412287"
+	},
+	"item": [
+		{
+			"name": "Create Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Estudar\",\n  \"description\": \"Flutter\",\n  \"category\": \"TASK\",\n  \"date\": \"2024-01-11T20:00:00.000Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tasks?userId={{USER_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{USER_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.environment.set(\"USER_ID\", pm.response.json().userId);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/id?nickname=alba",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"id"
+					],
+					"query": [
+						{
+							"key": "nickname",
+							"value": "alba"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/tasks?userId={{USER_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{USER_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"HzKshlBULSLjx54nFUoP\",\n  \"completed\": true,\n  \"description\": \"Sabado, 16h14\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tasks?userId={{USER_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{USER_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"HzKshlBULSLjx54nFUoP\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tasks?userId={{USER_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{USER_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
